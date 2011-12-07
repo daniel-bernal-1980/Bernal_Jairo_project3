@@ -18,9 +18,9 @@ window.addEventListener("DOMContentLoaded", function(){
 	// Select Field for Project Type.
 	function selectType() {
 		var formTag = document.getElementsByTagName("form");	//array
-			selectLi = $("selectType")
+			selectLi = $("selectType");
 			makeSelect = document.createElement("select");
-			makeSelect.setAttribute("id", "pType")
+			makeSelect.setAttribute("id", "pType");
 		 for (var i=0, j=projectType.length; i<j; i++) {
 		 	var makeOption = document.createElement("option");
 		 	var optText = projectType[i];
@@ -108,16 +108,17 @@ window.addEventListener("DOMContentLoaded", function(){
 	function getData() {
 		toggleControls("on");
 		if (localStorage.length === 0){
-			alert("There is no data in local storage.")
+			alert("There is no data in local storage.");
 		};
 		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement("ul");
 		makeDiv.appendChild(makeList);
-		document.body.appendChild(makeDiv)
+		document.body.appendChild(makeDiv);
 		$("items").style.display = "block";
 		for(var i=0, len = localStorage.length; i<len; i++){
-			var makeLi =  document.createElement("li");
+			var makeLi = document.createElement("li");
+			var linksLi = document.createElement("li");
 			makeList.appendChild(makeLi);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
@@ -129,15 +130,41 @@ window.addEventListener("DOMContentLoaded", function(){
 				makeSubList.appendChild(makeSubLi);
 				var optSubText = obj[n][0]+" "+obj[n][1];
 				makeSubLi.innerHTML = optSubText;
+				makeSubList.appendChild(linksLi);
 			};
+			makeItemLinks (localStorage.key(i));
 		};
 	};
 	
+	
+	// Make Item Links
+	
+	function makeItemLinks(key) {
+		var editLink = document.createElement("a");
+		var editLink.href = "#";
+		editLink.key = key;
+		var editText = "Edit Project";
+		editLink.addEventListener("click", editItem);
+		editLink.innerHTML = editText;
+		linksLi.appendChild(editLink);
+		
+		var deleteLink = document.createElement("a");
+		deleteLink.href = "#";
+		deleteLink.key = key;
+		var deleteText = "Delete Project";
+		deleteLink.addEventListener("click", deleteItem);
+		deleteLink.innerHTML = deleteText;
+		linksLi.appendChild(deleteLink);
+		
+	};
+
+
+
 	// Clear Data
 	
 	function clearLocal() {
 		if (localStorage.length === 0){
-			alert("There is no projects.")
+			alert("There is no projects.");
 		}else{
 			localStorage.clear();
 			alert("All stored projects are deleted!");
@@ -146,6 +173,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		};
 	};
 	
+		
 	
 	//Variable defaults
 	

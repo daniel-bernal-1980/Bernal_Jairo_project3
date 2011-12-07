@@ -73,6 +73,10 @@ nav{
 	width: 410px;
 }
 
+#errors{
+	color: red;
+}
+
 #projectTasksFieldset{
 	margin-top: 5px;
 	border: 1px solid white;

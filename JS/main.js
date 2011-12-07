@@ -221,11 +221,17 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	// validate stored data
 	
-	function validate() {
+	function validate(e) {
 		var getPrjType = $("pType");
 		var getPrjName = $("pName");
 		var getPrjNum = $("pNum");
-		var getDgrName = $("dName");		
+		var getDgrName = $("dName");
+		
+		errorMsg.innerHTML = "";
+			getPrjType.style.border = "1px solid black";
+			getPrjName.style.border = "1px solid black";
+			getPrjNum.style.border = "1px solid black";
+			getDgrName.style.border = "1px solid black";	
 		
 		var messageAry = [];
 		
@@ -253,10 +259,22 @@ window.addEventListener("DOMContentLoaded", function(){
 		// Project Designer validate
 		if (getDgrName.value === ""){
 			var dNameError = "Enter a designer name.";
-			getPrjNum.style.border = "1px solid red";
+			getDgrName.style.border = "1px solid red";
 			messageAry.push(dNameError); 
 		};
 		
+		// Display Errors
+		if (messageAry.length >= 1) {
+			for (var i = 0, j = messageAry.length; i < j; i++) {
+				var txt = document.createElement("li");
+				txt.innerHTML = messageAry[i];
+				errorMsg.appendChild(txt);
+			};
+			e.preventDefault();
+			return false;
+		}else{
+			storeData();
+		};
 	};
 		
 	
@@ -264,7 +282,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	var projectType = [" -- Choose A Type -- ", "Site Development", "Building Envelope", "Interior Design"],
 		workValue,
-		dwgValue = "No Drawings Needed!"
+		dwgValue = "No Drawings Needed!",
+		errorMsg = $("errors")
 	;
 	selectType();
 

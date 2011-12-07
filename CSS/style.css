@@ -70,6 +70,7 @@ nav{
 	-moz-box-shadow: 0 0 4px #aeaeae;
 	-webkit-box-shadow: 0 0 4px #aeaeae;
 	box-shadow: 0 0 4px #aeaeae;
+	width: 410px;
 }
 
 #projectTasksFieldset{
@@ -86,6 +87,7 @@ nav{
 
 .pInfo{
 	display: block;
+	width: 200px;
 }
 
 h2{

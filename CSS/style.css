@@ -77,6 +77,11 @@ nav{
 	color: red;
 }
 
+#pType{
+	width: 210px;
+	}
+
+
 #projectTasksFieldset{
 	margin-top: 5px;
 	border: 1px solid white;
@@ -160,4 +165,9 @@ label{
 	padding-right: 20px;
 	padding-left: 20px;
 	margin-bottom: -10px;
+}
+
+#rend{
+	display: block;
+	margin-top: 10px;
 }

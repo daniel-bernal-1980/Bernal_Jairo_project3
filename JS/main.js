@@ -160,7 +160,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Project";
-		//deleteLink.addEventListener("click", deleteItem);
+		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 		
@@ -208,7 +208,19 @@ window.addEventListener("DOMContentLoaded", function(){
 		editSubmit.addEventListener("click", validate);		
 		editSubmit.key = this.key;
 	};
+	
+	// Delete a Project
 
+	function deleteItem() {
+		var ask = confirm("Are you sure you want to delete this project?");
+		if (ask) {
+			localStorage.removeItem(this.key);
+			alert("Project was deleted!");
+			window.location.reload();
+		}else {
+			alert("Project was Not deleted.");
+		};
+	};
 
 
 	// Clear Data

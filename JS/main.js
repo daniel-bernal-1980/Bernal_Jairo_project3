@@ -188,7 +188,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 		$("dComments").value = item.dComt[1];
 		
-		// this portion as well doesn't work as it should.
+		// this portion also doesn't work as it should.
 		
 //		if (item.work3d[1] == "checked"){
 //			$("work3d").setAttribute("checked", "checked")
@@ -196,6 +196,12 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 		$("wComments").value = item.wComt[1];
 		$("rend").value = item.rend[1];
+		
+		saveLink.removeEventListener("click", storeData);
+		$("submit").value = "Edit Project";		// changes submit button to edit button
+		var editSubmit = $("submit");
+		editSubmit.addEventListener("click", validate);		
+		editSubmit.key = this.key;
 	};
 
 
@@ -213,6 +219,45 @@ window.addEventListener("DOMContentLoaded", function(){
 		};
 	};
 	
+	// validate stored data
+	
+	function validate() {
+		var getPrjType = $("pType");
+		var getPrjName = $("pName");
+		var getPrjNum = $("pNum");
+		var getDgrName = $("dName");		
+		
+		var messageAry = [];
+		
+		// Project Type validate
+		if (getPrjType.value === " -- Choose A Type -- "){
+			var typeError = "Choose a Project Type.";
+			getPrjType.style.border = "1px solid red";
+			messageAry.push(typeError); 
+		};
+		
+		// Project Name validate
+		if (getPrjName.value === ""){
+			var nameError = "Enter a project name.";
+			getPrjName.style.border = "1px solid red";
+			messageAry.push(nameError); 
+		};
+		
+		// Project Number validate
+		if (getPrjNum.value === ""){
+			var numError = "Enter a project number.";
+			getPrjNum.style.border = "1px solid red";
+			messageAry.push(numError); 
+		};
+		
+		// Project Designer validate
+		if (getDgrName.value === ""){
+			var dNameError = "Enter a designer name.";
+			getPrjNum.style.border = "1px solid red";
+			messageAry.push(dNameError); 
+		};
+		
+	};
 		
 	
 	//Variable defaults
@@ -232,6 +277,6 @@ window.addEventListener("DOMContentLoaded", function(){
 	var clearLink = $("clear");
 	clearLink.addEventListener("click", clearLocal);
 	var saveLink = $("submit");
-	saveLink.addEventListener("click", storeData);
+	saveLink.addEventListener("click", validate);
 
 });

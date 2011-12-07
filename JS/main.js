@@ -132,30 +132,70 @@ window.addEventListener("DOMContentLoaded", function(){
 				makeSubLi.innerHTML = optSubText;
 				makeSubList.appendChild(linksLi);
 			};
-			makeItemLinks (localStorage.key(i));
+			makeItemLinks (localStorage.key(i), linksLi);
 		};
 	};
 	
 	
 	// Make Item Links
 	
-	function makeItemLinks(key) {
+	function makeItemLinks(key, linksLi) {
 		var editLink = document.createElement("a");
-		var editLink.href = "#";
+		editLink.href = "#";
 		editLink.key = key;
 		var editText = "Edit Project";
 		editLink.addEventListener("click", editItem);
 		editLink.innerHTML = editText;
 		linksLi.appendChild(editLink);
 		
+		var breakTag = document.createElement("br");
+		linksLi.appendChild(breakTag);
+		
 		var deleteLink = document.createElement("a");
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Project";
-		deleteLink.addEventListener("click", deleteItem);
+		//deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 		
+	};
+	
+	// Edit an item 
+	
+	function editItem() {
+		var value = localStorage.getItem(this.key);
+		var item = JSON.parse(value);
+		
+		toggleControls("off");
+		
+		$("pType").value = item.pType[1];
+		$("pName").value = item.pName[1];
+		$("pNum").value = item.pNum[1];
+		$("dName").value = item.dName[1];
+		$("dateComp").value = item.dateComp[1];
+		
+		// I wasn't able to figured out how to retrofit this portion of this function so that shows all the options selected.
+		
+//		var checkboxes = document.forms[0].drawings;
+//		for (var i=0; i<checkboxes.length; i++){
+//			if (checkboxes [i].value == ){
+//				checkboxes [i].setAttribute("checked", "checked");
+//			}else if (checkboxes [i].value == ) {
+//				checkboxes [i].setAttribute("checked", "checked");
+//			}
+//		};
+		
+		$("dComments").value = item.dComt[1];
+		
+		// this portion as well doesn't work as it should.
+		
+//		if (item.work3d[1] == "checked"){
+//			$("work3d").setAttribute("checked", "checked")
+//		};
+		
+		$("wComments").value = item.wComt[1];
+		$("rend").value = item.rend[1];
 	};
 
 

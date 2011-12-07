@@ -83,8 +83,13 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	// Store Data
 	
-	function storeData() {
-		var id				= Math.floor(Math.random()*10000001);
+	function storeData(key) {
+		if (!key) {
+			var id			= Math.floor(Math.random()*10000001);
+		}else {
+			id = key;
+		};
+		
 		getSelectedRadio();
 		getCheckboxValue();
 		var item			= {};
@@ -273,7 +278,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			e.preventDefault();
 			return false;
 		}else{
-			storeData();
+			storeData(this.key);
 		};
 	};
 		

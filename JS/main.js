@@ -49,11 +49,13 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	function getCheckboxValue() {
 		var checkboxes = document.forms[0].drawings;
+//		var valueAry = [];
 			for (var i=0; i<checkboxes.length; i++) {
 				if (checkboxes[i].checked){
-					dwgValue = 	checkboxes[i].value;		
+					dwgValue = 	checkboxes[i].value;
+//					valueAry.push(dwgValue);		
 				}else{
-					dwgValue = "No Drawings Needed!"
+					dwgValue = "No Drawings Needed!";
 				};
 			};
 	};
@@ -74,9 +76,9 @@ window.addEventListener("DOMContentLoaded", function(){
 				$("addNew").style.display = "none";
 				$("items").style.display = "none";
 				break;
-			default:
+				default:
 				return false;	
-		}
+		};
 	
 	};
 	
@@ -169,15 +171,15 @@ window.addEventListener("DOMContentLoaded", function(){
 	// Edit an item 
 	
 	function editItem() {
-		var value = localStorage.getItem(this.key);
-		var item = JSON.parse(value);
+		var value 	= localStorage.getItem(this.key);
+		var item 	= JSON.parse(value);
 		
 		toggleControls("off");
 		
-		$("pType").value = item.pType[1];
-		$("pName").value = item.pName[1];
-		$("pNum").value = item.pNum[1];
-		$("dName").value = item.dName[1];
+		$("pType").value 	= item.pType[1];
+		$("pName").value 	= item.pName[1];
+		$("pNum").value 	= item.pNum[1];
+		$("dName").value 	= item.dName[1];
 		$("dateComp").value = item.dateComp[1];
 		
 		// I wasn't able to figured out how to retrofit this portion of this function so that shows all the options selected.
@@ -194,10 +196,19 @@ window.addEventListener("DOMContentLoaded", function(){
 		$("dComments").value = item.dComt[1];
 		
 		// this portion also doesn't work as it should.
+
 		
-//		if (item.work3d[1] == "checked"){
-//			$("work3d").setAttribute("checked", "checked")
-//		};
+//		var radios = document.forms[0].drawings;
+//		for (var i=0; i<radios.length; i++){
+//			if(radios[i].value == "Digital Model" && item.work3d[1] == "Digital Model"){
+//				radios[i].setAttribute("checked", "checked");
+//			}else if(radios[i].value == "Physical Model" && item.work3d[1] == "Physical Model"){
+//				radios[i].setAttribute("checked", "checked");
+//			}else if(radios[i].value == "Animation" && item.work3d[1] == "Animation"){
+//				radios[i].setAttribute("checked", "checked");
+//			}else if(radios[i].value == "Digital Model, Physical Model and Animation" && item.work3d[1] == "Digital Model, Physical Model and Animation"){
+//				radios[i].setAttribute("checked", "checked");
+//			};
 		
 		$("wComments").value = item.wComt[1];
 		$("rend").value = item.rend[1];
@@ -239,16 +250,16 @@ window.addEventListener("DOMContentLoaded", function(){
 	// validate stored data
 	
 	function validate(e) {
-		var getPrjType = $("pType");
-		var getPrjName = $("pName");
-		var getPrjNum = $("pNum");
-		var getDgrName = $("dName");
+		var getPrjType 	= $("pType");
+		var getPrjName 	= $("pName");
+		var getPrjNum 	= $("pNum");
+		var getDgrName 	= $("dName");
 		
 		errorMsg.innerHTML = "";
-			getPrjType.style.border = "1px solid black";
-			getPrjName.style.border = "1px solid black";
-			getPrjNum.style.border = "1px solid black";
-			getDgrName.style.border = "1px solid black";	
+			getPrjType.style.border 	= "1px solid gray";
+			getPrjName.style.border 	= "1px solid gray";
+			getPrjNum.style.border 		= "1px solid gray";
+			getDgrName.style.border 	= "1px solid gray";	
 		
 		var messageAry = [];
 		

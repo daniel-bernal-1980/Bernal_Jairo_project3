@@ -25,7 +25,7 @@ h1{
 	-webkit-box-shadow: 0 0 4px #c1c1c1;
 	box-shadow: 0 0 4px #c1c1c1;
 	border-bottom: 1px solid gray;
-	text-shadow: 2px 2px 2px rgba(244, 139, 33, 0.68);
+	text-shadow: 2px 2px 2px rgb(123, 157, 192);
 	text-align: center;
 	font-style: "Century Gothic";
 	font-size: 36px;
@@ -60,9 +60,6 @@ nav{
 	padding-left: 10px;
 }
 
-/*I couldn't figured out why the border I applied to the fieldset dosen't close on top of the legend title.
-  It does show the shadow all around the fieldset.  */
-
 #projectFieldset{
 	margin-top: 20px;
 	background-color: #7c9ec0;
@@ -83,10 +80,12 @@ nav{
 
 
 #projectTasksFieldset{
-	margin-top: 5px;
+	margin-top: 20px;
 	border: 1px solid white;
-	-moz-box-shadow: 0 0 4px #aeaeae;
-	-webkit-box-shadow: 0 0 4px #aeaeae;
+	-moz-box-shadow: inset 0 0 8px rgba(41, 41, 41, 0.8), 0 0 4px #aeaeae;
+	-webkit-box-shadow: inset 0 0 8px rgba(41, 41, 41, 0.8), 0 0 4px #aeaeae;
+	box-shadow: inset 0 0 8px rgba(41, 41, 41, 0.8), 0 0 4px #aeaeae;
+	padding-top: 10px;
 }
 
 #projectInfo{
@@ -99,18 +98,19 @@ nav{
 	width: 200px;
 }
 
-h2{
-	padding-top: 30px;
-	height: 20px;
-	text-shadow: 2px 2px 2px rgba(244, 139, 33, 0.68);
+#newPrjTl{
+	text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.75);
 	color: #284767;
+	font-size: 20px;
+	margin-top: 0;
 }
 
+
 h3{
-	padding-top: 30px;
-	text-shadow: 2px 2px 2px rgba(244, 139, 33, 0.68);
-	font-size: 16px;
+	text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.75);
 	color: #284767;
+	font-size: 18px;
+	margin-top: 0;
 }
 
 ul{
@@ -119,9 +119,6 @@ ul{
 	margin-bottom: 10px;
 }
 
-input{
-	
-}
 
 label{
 	margin-right: 20px;
@@ -136,6 +133,22 @@ label{
 	margin-bottom: 20px;
 }
 
+#work{
+	margin-top: 10px;
+}
+
+
+.commentArea{
+	margin-top: 10px;
+	width: 200px;
+}
+
+#rend{
+	display: block;
+	margin-top: 10px;
+}
+
+
 #submit{
 	margin-top: 15px;
 	margin-bottom: 5px;
@@ -144,18 +157,28 @@ label{
 /*  index.html  */
 
 #createProject{
-	margin-top: 20px;
+	margin-top: 40px;
 	background-color: #7c9ec0;
 	border: 2px solid white;
 	-moz-box-shadow: 0 0 4px #aeaeae;
 	-webkit-box-shadow: 0 0 4px #aeaeae;
 	box-shadow: 0 0 4px #aeaeae;
-	outline: none;
+	width: 410px;
+	height: 80px;
+	padding-top: 10px;
+}
+
+#prjTrackTl{
+	text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.75);
+	color: #284767;
+	font-size: 20px;
+	margin-top: 0;
 }
 
 #addProject{
-	margin-top: 20px;
+	margin-top: 15px;
 	margin-bottom: 5px;
+	
 }
 
 #mess{
@@ -165,9 +188,6 @@ label{
 	padding-right: 20px;
 	padding-left: 20px;
 	margin-bottom: -10px;
+	width: 410px;
 }
 
-#rend{
-	display: block;
-	margin-top: 10px;
-}

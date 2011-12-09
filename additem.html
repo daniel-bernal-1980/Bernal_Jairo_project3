@@ -26,8 +26,9 @@
 		</nav>
 		<form method="post" action="#" id="projectForm">
 		<fieldset id= "projectFieldset">
-			<legend><h2>New Project</h2></legend>
-			<span class="required">* fields are required.</span>
+			<!--<legend></legend>-->
+			<h2 id="newPrjTl">New Project</h2>
+			<span class="required">* fields required.</span>
 			<ul id="errors"></ul>
 				<ul id="projectInfo">
 					<li id="selectType"><label for="pType">*Project Type:</label><br /></li>
@@ -37,7 +38,8 @@
 					<li><label for="dateComp">Completion Date:</label><input type="date" id="dateComp" class="pInfo" placeholder="yyyy-mm-dd" /></li>
 				</ul>
 				<fieldset id="projectTasksFieldset">
-					<legend><h3>Tasks</h3></legend>
+					<!--<legend></legend>-->
+					<h3>Tasks</h3>
 						<ul id="tasks"> <!--Tasks List	-->			
 							<li>Drawings:
 								<ul class="checkbox">				
@@ -46,15 +48,16 @@
 									<li><input type="checkbox" value="Sections" id="scPlan" name="drawings" /><label for="scPlan">Sections</label></li>					
 								</ul>
 							</li>
-							<li><label for="dComments">Drawings Comments:</label><br /><textarea id="dComments"></textarea></li>	
-							<li>3D Work:
+							<li><label for="dComments">Drawings Comments:</label><br /><textarea id="dComments" class="commentArea"></textarea></li>	
+							<li id="work">3D Work:
 								<ul class="checkbox">
 									<li><input type="radio" value="Digital Model" id="dmodel" name="models" /><label for="dmodel">Digital Model</label></li>
 									<li><input type="radio" value="Physical Model" id="phModel" name="models" /><label for="phModel">Physical Model</label></li>
 									<li><input type="radio" value="Animation" id="anim" name="models" /><label for="anim">Animations</label></li>
 									<li><input type="radio" value="Digital Model, Physical Model and Animation" id="all" name="models" /><label for="all">All</label></li>
 								</ul>
-							<li><label for="wComments">3D Work Comments:</label><br /><textarea id="wComments"></textarea></li>	
+							</li>
+							<li><label for="wComments">3D Work Comments:</label><br /><textarea id="wComments" class="commentArea"></textarea></li>	
 							<li><label for="rend">Renderings:</label><input type="range" min="1" max="20" id="rend" /></li>
 						</ul><!--Tasks List - End-->		
 				</fieldset>

@@ -42,10 +42,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		 };
 	};
 	
-	//Value of selected checkbox.
-	// this function doesn't work as I wanted it to work.
-	// If I pick all the options it only returns the last option.
-	// I want it to display all the options that are selected.
+//  I wasn't able to translated your suggestions from the e-mail to the actual code.
+//	I have to be honest and tell you that I barely pass SDI. I even had to take it twice.
+//  I haven't being able to grasp the logic of the language. Is easy to follow the videos but when I do things on my own they never work.
 	
 	function getCheckboxValue() {
 		var checkboxes = document.forms[0].drawings;
@@ -57,6 +56,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				}else{
 					dwgValue = "No Drawings Needed!";
 				};
+//			valueAry.push(dwgValue);
 			};
 	};
 	
@@ -182,7 +182,6 @@ window.addEventListener("DOMContentLoaded", function(){
 		$("dName").value 	= item.dName[1];
 		$("dateComp").value = item.dateComp[1];
 		
-		// I wasn't able to figured out how to retrofit this portion of this function so that shows all the options selected.
 		
 //		var checkboxes = document.forms[0].drawings;
 //		for (var i=0; i<checkboxes.length; i++){
@@ -195,8 +194,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 		$("dComments").value = item.dComt[1];
 		
-		// this portion also doesn't work as it should.
-
+// 		this portion kept breaking the code - is totally wrong.
 		
 //		var radios = document.forms[0].drawings;
 //		for (var i=0; i<radios.length; i++){
